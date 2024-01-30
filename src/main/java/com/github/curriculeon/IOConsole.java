@@ -13,6 +13,9 @@ public class IOConsole {
     private final Scanner scanner;
     private final PrintStream out;
 
+
+
+
     public IOConsole() {
         this(System.in, System.out);
     }
@@ -30,7 +33,8 @@ public class IOConsole {
      * @param val  : text to display on console
      * @param args : optional arguments to send for string formatting
      */
-    public void print(String val, Object... args) {
+    public void print(String val, Object... args)
+    {
         out.format(val, args);
     }
 
@@ -39,6 +43,8 @@ public class IOConsole {
      * @param args : optional arguments to send for string formatting
      */
     public void println(String val, Object... args) {
+        val +=  "%n";
+        out.format(val, args);
     }
 
     /**
@@ -47,7 +53,9 @@ public class IOConsole {
      * @return user's input as String
      */
     public String getStringInput(String prompt, Object... args) {
-        return null;
+
+
+        return scanner.next();
     }
 
     /**
@@ -74,7 +82,7 @@ public class IOConsole {
      * @return user's input as float
      */ // TODO - Change recursion to iteration
     public Float getFloatInput(String prompt, Object... args) {
-        return null;
+        return scanner.nextFloat();
     }
 
     /**
@@ -83,6 +91,6 @@ public class IOConsole {
      * @return user's input as long
      */ // TODO - Change recursion to iteration
     public Long getLongInput(String prompt, Object... args) {
-        return null;
+        return scanner.nextLong();
     }
 }
